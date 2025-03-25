@@ -4,6 +4,7 @@
 
     $usuarios = json_decode($jsonDados, true);
 
+
     if ($usuarios === null) {
         die("Erro ao decodificar JSON\n");
     }
