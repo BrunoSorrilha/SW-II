@@ -2,24 +2,19 @@
 
     $arquivo = "usuarios.json";
 
-    //Verifica se o arquivo existe
     if (!file_exists($arquivo)) {
         die("Arquivo usuarios.json não encontrado!\n");
     }
 
-    //Lendo o JSON
     $jsonDados = file_get_contents($arquivo);
     $usuarios = json_decode($jsonDados, true);
 
-    //Verifica se a conversão deu certo
     if ($usuarios === null) {
         die("Erro ao decodificar JSON\n");
     }
 
-    //Email a ser buscado
-    $emailBusca = isset($_GET['email']) ? $_GET['email'] : "joao@email.com";
+    $emailBusca = isset($_GET['email']) ? $_GET['email'] : "pedro@email.com";
 
-    //Busca o usuário pelo email
     $usuarioEncontrado = null;
     foreach ($usuarios as $usuario) {
         if ($usuario["email"] === $emailBusca) {
